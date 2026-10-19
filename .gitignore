@@ -1,0 +1,5 @@
+# Ignore flower_photos folder
+flower_photos/
+*.tgz
+*.csv
+Readme.txt
