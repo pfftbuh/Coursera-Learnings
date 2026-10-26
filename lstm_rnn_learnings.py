@@ -69,3 +69,15 @@ lstm_model.add(Dense(46))
 lstm_model.compile(optimizer='adam', loss='mse')
 lstm_model.fit(xtrain,ytrain,batch_size=256,epochs=10,validation_data=(xtest,ytest))
 lstm_model.evaluate(xtest, ytest, batch_size=256)
+
+# GRU model
+
+gru_model = Sequential()
+gru_model.add(Embedding(input_dim=num_words, output_dim=300, input_length=maxlen))
+gru_model.add(GRU(50, input_shape=(num_words, maxlen)))
+
+gru_model.add(Dense(46))
+
+gru_model.compile(optimizer='adam', loss='mse')
+gru_model.fit(xtrain,ytrain,batch_size=256,epochs=10,validation_data=(xtest,ytest))
+gru_model.evaluate(xtest, ytest, batch_size=256)
