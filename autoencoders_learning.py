@@ -88,22 +88,22 @@ print(xtest.shape)
 
 input_image=Input(shape=(784,))
 
-encoding_dim = 36
-encoder = Dense (encoding_dim, activation='relu')(input_image)
+# encoding_dim = 36
+# encoder = Dense (encoding_dim, activation='relu')(input_image)
 
-decoder = Dense(784, activation='sigmoid')(encoder)
+# decoder = Dense(784, activation='sigmoid')(encoder)
 
-autoencoder = Model(input_image, decoder)
+# autoencoder = Model(input_image, decoder)
 
-autoencoder.compile(optimizer='adam',loss='binary_crossentropy')
+# autoencoder.compile(optimizer='adam',loss='binary_crossentropy')
 
-history=autoencoder.fit(xtrain,xtrain,epochs=25,batch_size=256,shuffle=True,validation_data=(xtest,xtest))
+# history=autoencoder.fit(xtrain,xtrain,epochs=25,batch_size=256,shuffle=True,validation_data=(xtest,xtest))
 
-graph_history(history=history, title='Log Loss and Accuracy over iterations')
+# graph_history(history=history, title='Log Loss and Accuracy over iterations')
 
-xhat=autoencoder.predict(xtest)
+# xhat=autoencoder.predict(xtest)
 
-plot_images(xtest,xhat,start=0,stop=5)
+# plot_images(xtest,xhat,start=0,stop=5)
 
 class Deep_Autoencoder(Model):
     def __init__(self, latent_dim_1,latent_dim_2):
@@ -162,3 +162,5 @@ history=cnn_autoencoder.fit(
 )
 
 graph_history(history, title='Log Loss and Accuracy over iterations')
+xhat=deep_autoencoder.predict(xtest_images)
+plot_images(xtest, xhat, start=0, stop=5)
